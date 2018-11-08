@@ -2,7 +2,6 @@
 // Object Destructuring
 //
 
-
 // const person = {
 //     name: 'Julien',
 //     age: 99,
@@ -15,10 +14,10 @@
 // const { name: firstName = 'Anonymous', age } = person;
 // console.log(`${firstName} is ${age}.`)
 
-// const { city, temp: temperature } = person.location; 
+// const { city, temp: temperature } = person.location;
 // if (temperature && city ) {
 //     console.log(`It's ${temperature} in ${city}.`)
-// } 
+// }
 
 // const book = {
 //     title: 'Ego is the Enemy',
@@ -40,8 +39,8 @@
 // const [, city, state = 'New York' ] = address;
 // console.log(`You are in ${city}, ${state}.`);
 
-const item = ['Coffee (ice)', '$3.00', '$3.50', '$3.75'];
+const item = ["Coffee (ice)", "$3.00", "$3.50", "$3.75"];
 
-const [itemName, , medium, ] = item
+const [itemName, , medium] = item;
 
 console.log(`A medium ${itemName} costs ${medium}`);
