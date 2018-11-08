@@ -1,5 +1,5 @@
 {
-  "name": "Boilerplate",
+  "name": "expensify-app",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/julienshim/Boilerplate.git"
+    "url": "git+https://github.com/julienshim/expensify-app.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/julienshim/Boilerplate/issues"
+    "url": "https://github.com/julienshim/expensify-app/issues"
   },
-  "homepage": "https://github.com/julienshim/Boilerplate#readme",
+  "homepage": "https://github.com/julienshim/expensify-app#readme",
   "dependencies": {
     "css-loader": "^1.0.1",
     "live-server": "^1.2.0",
