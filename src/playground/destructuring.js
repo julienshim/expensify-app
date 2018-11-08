@@ -39,7 +39,7 @@
 // const [, city, state = 'New York' ] = address;
 // console.log(`You are in ${city}, ${state}.`);
 
-const item = ["Coffee (ice)", "$3.00", "$3.50", "$3.75"];
+const item = ['Coffee (ice)', '$3.00', '$3.50', '$3.75'];
 
 const [itemName, , medium] = item;
 

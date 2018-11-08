@@ -4,8 +4,8 @@
 // Prop manipulation
 // Abstract state
 
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 const Info = props => (
   <div>
@@ -41,5 +41,5 @@ const AuthInfo = requireAuthentication(Info);
 // ReactDOM.render(<AdminInfo isAdmin={false} info="These are the details." />, document.getElementById('app'));
 ReactDOM.render(
   <AuthInfo isAuthenticated={true} info="These are the details." />,
-  document.getElementById("app")
+  document.getElementById('app')
 );
