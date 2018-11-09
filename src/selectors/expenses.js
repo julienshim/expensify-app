@@ -1,7 +1,7 @@
-// Get visible expenses
+// Get Visible Expenses
 
-export default (expenses, { text, sortBy, startDate, endDate }) => {
-  return expenses
+export default (expenses, { text, sortBy, startDate, endDate }) =>
+  expenses
     .filter(expense => {
       const startDateMatch =
         typeof startDate !== 'number' || expense.createdAt >= startDate;
@@ -13,11 +13,12 @@ export default (expenses, { text, sortBy, startDate, endDate }) => {
 
       return startDateMatch && endDateMatch && textMatch;
     })
+    // eslint-disable-next-line array-callback-return, consistent-return
     .sort((a, b) => {
       if (sortBy === 'date') {
         return a.createdAt < b.createdAt ? 1 : -1;
-      } else if (sortBy === 'amount') {
+      }
+      if (sortBy === 'amount') {
         return a.amount < b.amount ? 1 : -1;
       }
     });
-};

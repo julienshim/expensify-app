@@ -43,4 +43,5 @@ const item = ['Coffee (ice)', '$3.00', '$3.50', '$3.75'];
 
 const [itemName, , medium] = item;
 
+// eslint-disable-next-line no-console
 console.log(`A medium ${itemName} costs ${medium}`);

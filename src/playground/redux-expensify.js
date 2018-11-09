@@ -27,7 +27,6 @@ const removeExpense = ({ id }) => ({
 });
 
 // EDIT_EXPENSE
-
 const editExpense = (id, updates) => ({
   // [1/2] Here we are not decontructing because we are passing in a straight value
   type: 'EDIT_EXPENSE',
@@ -36,32 +35,27 @@ const editExpense = (id, updates) => ({
 });
 
 // SET_TEXT_FILTER
-
 const setTextFilter = (text = '') => ({
   type: 'SET_TEXT_FILTER',
   text
 });
 
 // SORT_BY_DATE
-
 const sortByDate = () => ({
   type: 'SORT_BY_DATE'
 });
 
 // SORT_BY_AMOUNT
-
 const sortByAmount = () => ({
   type: 'SORT_BY_AMOUNT'
 });
 
 // SET_START_DATE
-
 const setStartDate = startDate => ({
   type: 'SET_START_DATE',
   startDate
 });
 // SET_END_DATE
-
 const setEndDate = endDate => ({
   type: 'SET_END_DATE',
   endDate
@@ -84,9 +78,8 @@ const expensesReducer = (state = expensesReducerDefaultState, action) => {
             ...expense,
             ...action.updates
           };
-        } else {
-          return expense;
         }
+        return expense;
       });
     default:
       return state;
@@ -136,8 +129,8 @@ const filtersReducer = (state = filtersReducerDefaultState, action) => {
 
 // Get visible expenses
 
-const getVisibleExpenses = (expenses, { text, sortBy, startDate, endDate }) => {
-  return expenses
+const getVisibleExpenses = (expenses, { text, sortBy, startDate, endDate }) =>
+  expenses
     .filter(expense => {
       const startDateMatch =
         typeof startDate !== 'number' || expense.createdAt >= startDate;
@@ -149,14 +142,15 @@ const getVisibleExpenses = (expenses, { text, sortBy, startDate, endDate }) => {
 
       return startDateMatch && endDateMatch && textMatch;
     })
+    // eslint-disable-next-line array-callback-return, consistent-return
     .sort((a, b) => {
       if (sortBy === 'date') {
         return a.createdAt < b.createdAt ? 1 : -1;
-      } else if (sortBy === 'amount') {
+      }
+      if (sortBy === 'amount') {
         return a.amount < b.amount ? 1 : -1;
       }
     });
-};
 
 // Store Creation
 
@@ -170,6 +164,7 @@ const store = createStore(
 store.subscribe(() => {
   const state = store.getState();
   const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
+  // eslint-disable-next-line no-console
   console.log(visibleExpenses);
 });
 
@@ -189,35 +184,34 @@ const expenseTwo = store.dispatch(
   })
 );
 
-// store.dispatch(removeExpense({ id: expenseOne.expense.id }));
-// store.dispatch(editExpense(expenseTwo.expense.id, { amount: 500 }));
-// store.dispatch(setTextFilter('ffe'));
-// store.dispatch(setTextFilter());
-// store.dispatch(setTextFilter());
-// store.dispatch(sortByAmount());
+store.dispatch(removeExpense({ id: expenseOne.expense.id }));
+store.dispatch(editExpense(expenseTwo.expense.id, { amount: 500 }));
+store.dispatch(setTextFilter('ffe'));
+store.dispatch(setTextFilter());
+store.dispatch(setTextFilter());
+store.dispatch(sortByAmount());
 store.dispatch(sortByDate());
+store.dispatch(setStartDate(0));
+store.dispatch(setStartDate());
+store.dispatch(setEndDate(1250));
 
-// store.dispatch(setStartDate(0));
-// store.dispatch(setStartDate());
-// store.dispatch(setEndDate(1250));
-
-const demoState = {
-  expenses: [
-    {
-      id: 'alsdkfjalksdfj',
-      description: 'January Rent',
-      note: 'This was the final payment for that address.',
-      amount: 54500,
-      createdAt: 0
-    }
-  ],
-  filters: {
-    text: 'rent',
-    sortBy: 'date', // date or amount
-    startDate: undefined,
-    endDate: undefined
-  }
-};
+// const demoState = {
+//   expenses: [
+//     {
+//       id: 'alsdkfjalksdfj',
+//       description: 'January Rent',
+//       note: 'This was the final payment for that address.',
+//       amount: 54500,
+//       createdAt: 0
+//     }
+//   ],
+//   filters: {
+//     text: 'rent',
+//     sortBy: 'date', // date or amount
+//     startDate: undefined,
+//     endDate: undefined
+//   }
+// };
 
 // const user = {
 //     name: 'Jen',

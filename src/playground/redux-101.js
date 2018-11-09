@@ -51,6 +51,7 @@ const countReducer = (state = { count: 0 }, action) => {
 const store = createStore(countReducer);
 
 const unsubscribe = store.subscribe(() => {
+  // eslint-disable-next-line no-console
   console.log(store.getState());
 });
 
@@ -66,6 +67,8 @@ store.dispatch(incrementCount());
 store.dispatch(resetCount());
 
 store.dispatch(decrementCount());
+
+unsubscribe();
 
 store.dispatch(decrementCount({ decrementBy: 10 }));
 

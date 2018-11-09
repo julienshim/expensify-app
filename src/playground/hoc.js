@@ -6,27 +6,31 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 
-const Info = props => (
+const Info = ({ info }) => (
   <div>
     <h1>Info</h1>
-    <p>This info is: {props.info}</p>
+    <p>This info is: {info}</p>
   </div>
 );
 
-const withAdminWarning = WrappedComponent => {
-  return props => (
-    <div>
-      {props.isAdmin && <p>This is private info. Please don't share!</p>}
-      <WrappedComponent {...props} />
-    </div>
-  );
+Info.propTypes = {
+  info: PropTypes.string
 };
 
-const requireAuthentication = WrappedComponent => {
-  return props => (
+// const withAdminWarning = WrappedComponent => ({ isAdmin }) => (
+//   <div>
+//     {isAdmin && <p>This is private info. Please don&apos;t share!</p>}
+//     <WrappedComponent {...props} />
+//   </div>
+// );
+
+const requireAuthentication = WrappedComponent => ({ props }) => {
+  const { isAuthenticated } = props;
+  return (
     <div>
-      {props.isAuthenticated ? (
+      {isAuthenticated ? (
         <WrappedComponent {...props} />
       ) : (
         <p>Please login to view info.</p>
@@ -35,11 +39,11 @@ const requireAuthentication = WrappedComponent => {
   );
 };
 
-const AdminInfo = withAdminWarning(Info);
+// const AdminInfo = withAdminWarning(Info);
 const AuthInfo = requireAuthentication(Info);
 
 // ReactDOM.render(<AdminInfo isAdmin={false} info="These are the details." />, document.getElementById('app'));
 ReactDOM.render(
-  <AuthInfo isAuthenticated={true} info="These are the details." />,
+  <AuthInfo isAuthenticated info="These are the details." />,
   document.getElementById('app')
 );
