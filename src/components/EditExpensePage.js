@@ -1,9 +1,9 @@
 import React from 'react';
 
-const EditExpensePage = (props) => (        
-    <div>
-        This is from my edit expense page.
-    </div>
+const EditExpensePage = props => (
+  <div>
+    <ExpenseList />
+  </div>
 );
 
 export default EditExpensePage;

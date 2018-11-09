@@ -8,7 +8,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   module: {
-    //loader
+    // loader
     rules: [
       {
         loader: 'babel-loader',
