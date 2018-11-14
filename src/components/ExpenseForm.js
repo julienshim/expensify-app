@@ -29,23 +29,35 @@ export default class ExpenseForm extends React.Component {
 
   onAmountChange = ({ target }) => {
     const amount = target.value;
-    if (amount.match(/^\d*(\.\d{0,2})?$/)) {
+    if (!amount || amount.match(/^\d{1,}(\.\d{0,2})?$/)) {
       this.setState(() => ({ amount }));
     }
   };
 
   onDateChange = createdAt => {
-    this.setState(() => ({ createdAt }));
+    if (createdAt) {
+      this.setState(() => ({ createdAt }));
+    }
   };
 
   onFocusChange = ({ focused }) => {
     this.setState(() => ({ calendarFocused: focused }));
   };
 
+  onSubmit = event => {
+    event.preventDefault();
+    if (!this.state.description || !this.state.amount) {
+      // Set error state equal to 'Please provide description and amount.'
+    } else {
+      // Clear the error
+      console.log('Submitted');
+    }
+  };
+
   render() {
     return (
       <div>
-        <form>
+        <form onSubmit={this.onSubmit}>
           {/* Autofocuse not used -- can cause usability issues for sighted and non-sighted users */}
           <input
             type="text"
