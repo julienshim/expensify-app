@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "live-server public/",
     "build": "webpack",
-    "dev-server": "webpack-dev-server"
+    "dev-server": "webpack-dev-server",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
   "homepage": "https://github.com/julienshim/expensify-app#readme",
   "dependencies": {
     "css-loader": "^1.0.1",
+    "jest": "^23.6.0",
     "moment": "^2.22.2",
     "node-sass": "^4.10.0",
     "normalize.css": "^8.0.0",
