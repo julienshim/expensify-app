@@ -1,13 +1,11 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { removeExpense } from '../actions/expenses';
 import { Link } from 'react-router-dom';
 
 // Export a stateless functional component
 // descripton, amount, createdAt
 
-const ExpenseListItem = ({ id, description, amount, createdAt, dispatch }) => (
+const ExpenseListItem = ({ id, description, amount, createdAt }) => (
   <div>
     <Link to={`/edit/${id}`}>
       <h3>{description}</h3>
