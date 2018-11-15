@@ -30,4 +30,4 @@ ExpenseListItem.propTypes = {
   createdAt: PropTypes.number
 };
 
-export default connect(mapStateToProps)(ExpenseListItem);
+export default ExpenseListItem;
