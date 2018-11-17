@@ -23,6 +23,18 @@ test('should generate set end date action object', () => {
   });
 });
 
-test('should generate set text with provided values', () => {});
+test('should generate set text with provided values', () => {
+  const action = setTextFilter('abc123');
+  expect(action).toEqual({
+    type: 'SET_TEXT_FILTER',
+    text: 'abc123'
+  });
+});
 
-test('should generate set text with default values', () => {});
+test('should generate set text with default values', () => {
+  const action = setTextFilter();
+  expect(action).toEqual({
+    type: 'SET_TEXT_FILTER',
+    text: ''
+  });
+});
