@@ -23,11 +23,12 @@ test('should generate set end date action object', () => {
   });
 });
 
-test('should generate set text with provided values', () => {
-  const action = setTextFilter('abc123');
+test('should generate set text with text value', () => {
+  const text = 'abc123';
+  const action = setTextFilter(text);
   expect(action).toEqual({
     type: 'SET_TEXT_FILTER',
-    text: 'abc123'
+    text
   });
 });
 
@@ -44,6 +45,7 @@ test('should generate sort by text to date', () => {
   expect(action).toEqual({
     type: 'SORT_BY_DATE'
   });
+  // expect(sortByDate()).toEqual({ type: 'SORT_BY_DATE' });
 });
 
 test('should generate sort by text to amount', () => {
@@ -51,4 +53,5 @@ test('should generate sort by text to amount', () => {
   expect(action).toEqual({
     type: 'SORT_BY_AMOUNT'
   });
+  // expect(sortByAmount()).toEqual({ type: 'SORT_BY_AMOUNT' });
 });
