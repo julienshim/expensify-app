@@ -38,3 +38,17 @@ test('should generate set text with default values', () => {
     text: ''
   });
 });
+
+test('should generate sort by text to date', () => {
+  const action = sortByDate();
+  expect(action).toEqual({
+    type: 'SORT_BY_DATE'
+  });
+});
+
+test('should generate sort by text to amount', () => {
+  const action = sortByAmount();
+  expect(action).toEqual({
+    type: 'SORT_BY_AMOUNT'
+  });
+});
