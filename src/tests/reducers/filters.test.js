@@ -28,8 +28,6 @@ test("should set sortBy to date", () => {
   expect(state.sortBy).toBe("date");
 });
 
-// should set text filter
-
 test("should set text filter", () => {
   const text = "rent";
   const action = {
@@ -40,8 +38,6 @@ test("should set text filter", () => {
   expect(state.text).toBe("rent");
 });
 
-// should setStartDate filter
-
 test("should set startDate filter", () => {
   const startDate = moment(0);
   const action = {
@@ -51,8 +47,6 @@ test("should set startDate filter", () => {
   const state = filtersReducer(undefined, action);
   expect(state.startDate).toEqual(moment(0));
 });
-
-// should setEndDate filter
 
 test("should set endDate filter", () => {
   const endDate = moment(0);
