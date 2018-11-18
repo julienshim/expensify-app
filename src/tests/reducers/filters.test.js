@@ -31,29 +31,35 @@ test("should set sortBy to date", () => {
 // should set text filter
 
 test("should set text filter", () => {
-  const state = filtersReducer(undefined, {
+  const text = "rent";
+  const action = {
     type: "SET_TEXT_FILTER",
-    text: "rent"
-  });
+    text
+  };
+  const state = filtersReducer(undefined, action);
   expect(state.text).toBe("rent");
 });
 
 // should setStartDate filter
 
 test("should set startDate filter", () => {
-  const state = filtersReducer(undefined, {
+  const startDate = moment(0);
+  const action = {
     type: "SET_START_DATE",
-    startDate: moment(0)
-  });
+    startDate
+  };
+  const state = filtersReducer(undefined, action);
   expect(state.startDate).toEqual(moment(0));
 });
 
 // should setEndDate filter
 
 test("should set endDate filter", () => {
-  const state = filtersReducer(undefined, {
+  const endDate = moment(0);
+  const action = {
     type: "SET_END_DATE",
-    endDate: moment(0)
-  });
+    endDate
+  };
+  const state = filtersReducer(undefined, action);
   expect(state.endDate).toEqual(moment(0));
 });
