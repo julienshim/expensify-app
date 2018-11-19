@@ -7,5 +7,4 @@ test("should render Header correctly", () => {
   const renderer = new ShallowRenderer();
   renderer.render(<Header />);
   expect(renderer.getRenderOutput()).toMatchSnapshot();
-  console.log(renderer.getRenderOutput());
 });
