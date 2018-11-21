@@ -1,7 +1,5 @@
-# indecision-app
+# Expensify App
 
-Configuation
+Expensify is a budgeting app built with React, Redux, SCSS, Webpack, and Babel 7.
 
-```
-yarn install
-```
+
