@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 // Export a stateless functional component
 // descripton, amount, createdAt
@@ -16,13 +16,12 @@ export const ExpenseListItem = ({ id, description, amount, createdAt }) => (
   </div>
 );
 
-const mapStateToProps = state => ({
-  expenses: state.expenses
-});
+// const mapStateToProps = state => ({
+//   expenses: state.expenses
+// });
 
 ExpenseListItem.propTypes = {
   id: PropTypes.string,
-  dispatch: PropTypes.func,
   description: PropTypes.string,
   amount: PropTypes.number,
   createdAt: PropTypes.number
