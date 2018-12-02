@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 import { SingleDatePicker } from 'react-dates';
 
 export default class ExpenseForm extends React.Component {
@@ -43,8 +44,10 @@ export default class ExpenseForm extends React.Component {
   };
 
   onSubmit = event => {
+    const { description, amount, createdAt, note } = this.state;
+    const { onSubmit } = this.props;
     event.preventDefault();
-    if (!this.state.description || !this.state.amount) {
+    if (!description || !amount) {
       this.setState(() => ({
         error: 'Please provide description and amount.'
       }));
@@ -54,44 +57,52 @@ export default class ExpenseForm extends React.Component {
       this.setState(() => ({
         error: ''
       }));
-      this.props.onSubmit({
-        description: this.state.description,
-        amount: parseFloat(this.state.amount, 10) * 100,
-        createdAt: this.state.createdAt.valueOf(),
-        note: this.state.note
+      onSubmit({
+        description,
+        amount: parseFloat(amount, 10) * 100,
+        createdAt: createdAt.valueOf(),
+        note
       });
     }
   };
 
   render() {
+    const {
+      error,
+      description,
+      amount,
+      createdAt,
+      calendarFocused,
+      note
+    } = this.state;
     return (
       <div>
-        {this.state.error && <p>{this.state.error}</p>}
+        {error && <p>{error}</p>}
         <form onSubmit={this.onSubmit}>
           {/* Autofocuse not used -- can cause usability issues for sighted and non-sighted users */}
           <input
             type="text"
             placeholder="Description"
-            value={this.state.description}
+            value={description}
             onChange={this.onDescriptionChange}
           />
           <input
             type="text"
             placeholder="Amount"
-            value={this.state.amount}
+            value={amount}
             onChange={this.onAmountChange}
           />
           <SingleDatePicker
-            date={this.state.createdAt}
+            date={createdAt}
             onDateChange={this.onDateChange}
-            focused={this.state.calendarFocused}
+            focused={calendarFocused}
             onFocusChange={this.onFocusChange}
             numberOfMonths={1}
             isOutsideRange={day => false}
           />
           <textarea
             placeholder="Add a note for your expense (optional)"
-            value={this.state.note}
+            value={note}
             onChange={this.onNoteChange}
           />
           <button type="submit">Add Expense</button>
@@ -100,3 +111,13 @@ export default class ExpenseForm extends React.Component {
     );
   }
 }
+
+ExpenseForm.propTypes = {
+  expense: PropTypes.shape({
+    note: PropTypes.string,
+    description: PropTypes.string,
+    amount: PropTypes.number,
+    createdAt: PropTypes.number
+  }),
+  onSubmit: PropTypes.func
+};
