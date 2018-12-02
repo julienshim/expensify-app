@@ -16,8 +16,9 @@ class ExpenseListFilters extends React.Component {
   };
 
   onDatesChange = ({ startDate, endDate }) => {
-    this.props.dispatch(setStartDate(startDate));
-    this.props.dispatch(setEndDate(endDate));
+    const { dispatch } = this.props;
+    dispatch(setStartDate(startDate));
+    dispatch(setEndDate(endDate));
   };
 
   onFocusChange = calendarFocused => {
@@ -25,22 +26,24 @@ class ExpenseListFilters extends React.Component {
   };
 
   render() {
+    const { filters, dispatch } = this.props;
+    const { calendarFocused } = this.state;
     return (
       <div>
         <input
           type="text"
-          value={this.props.filters.text}
+          value={filters.text}
           onChange={({ target }) => {
             dispatch(setTextFilter(target.value));
           }}
         />
         <select
-          value={this.props.filters.sortedBy}
+          value={filters.sortedBy}
           onChange={({ target }) => {
             if (target.value === 'date') {
-              this.props.dispatch(sortByAmount(target.value));
+              dispatch(sortByAmount(target.value));
             } else if (target.value === 'amount') {
-              this.props.dispatch(sortByDate(target.value));
+              dispatch(sortByDate(target.value));
             }
           }}
         >
@@ -48,14 +51,14 @@ class ExpenseListFilters extends React.Component {
           <option value="amount">Amount</option>
         </select>
         <DateRangePicker
-          startDate={this.props.filters.startDate}
-          startDateId={'start_date_input'}
-          endDate={this.props.filters.endDate}
-          endDateId={'end_date_input'}
+          startDate={filters.startDate}
+          startDateId="start_date_input"
+          endDate={filters.endDate}
+          endDateId="end_date_input"
           onDatesChange={this.onDatesChange}
-          focusedInput={this.state.calendarFocused}
+          focusedInput={calendarFocused}
           onFocusChange={this.onFocusChange}
-          showClearDates={true}
+          showClearDates
           numberOfMonths={1}
           isOutsideRange={() => false}
         />
@@ -71,7 +74,10 @@ const mapStateToProps = state => ({
 ExpenseListFilters.propTypes = {
   dispatch: PropTypes.func,
   filters: PropTypes.shape({
-    text: PropTypes.string
+    text: PropTypes.string,
+    startDate: PropTypes.number,
+    endDate: PropTypes.number,
+    sortBy: PropTypes.string
   })
 };
 
