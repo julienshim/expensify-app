@@ -23,7 +23,9 @@ export class AddExpensePage extends React.Component {
 
 AddExpensePage.propTypes = {
   onSubmit: PropTypes.func,
-  history: PropTypes.func
+  history: PropTypes.shape({
+    push: PropTypes.func
+  })
 };
 
 const mapDispatchToProps = dispatch => ({
