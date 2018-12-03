@@ -6,8 +6,9 @@ import { addExpense } from '../actions/expenses';
 
 export class AddExpensePage extends React.Component {
   onSubmit = expense => {
-    const { history, onSubmit } = this.props;
-    onSubmit(expense);
+    // eslint-disable-next-line no-shadow
+    const { addExpense, history } = this.props;
+    addExpense(expense);
     history.push('/');
   };
 
@@ -22,14 +23,14 @@ export class AddExpensePage extends React.Component {
 }
 
 AddExpensePage.propTypes = {
-  onSubmit: PropTypes.func,
+  addExpense: PropTypes.func,
   history: PropTypes.shape({
     push: PropTypes.func
   })
 };
 
 const mapDispatchToProps = dispatch => ({
-  onSubmit: expense => dispatch(addExpense(expense))
+  addExpense: expense => dispatch(addExpense(expense)) // same name as action generator in upper which is confusing
 });
 
 export default connect(
