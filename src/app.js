@@ -1,21 +1,21 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
-import AppRouter from "./routers/AppRouter";
-import configureStore from "./store/configureStore";
-import { addExpense } from "./actions/expenses";
-import { setTextFilter } from "./actions/filters";
-import getVisibleExpenses from "./selectors/expenses";
-import "normalize.css/normalize.css";
-import "./styles/styles.scss";
-import "react-dates/lib/css/_datepicker.css";
-import "react-dates/initialize";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import AppRouter from './routers/AppRouter';
+import configureStore from './store/configureStore';
+// import { addExpense } from "./actions/expenses";
+// import { setTextFilter } from "./actions/filters";
+// import getVisibleExpenses from "./selectors/expenses";
+import 'normalize.css/normalize.css';
+import './styles/styles.scss';
+import 'react-dates/lib/css/_datepicker.css';
+import 'react-dates/initialize';
 
 const store = configureStore();
 
-store.dispatch(addExpense({ description: "Water Bill", amount: 4500 }));
-store.dispatch(addExpense({ description: "Gas Bill", amount: 1000 }));
-store.dispatch(addExpense({ description: "Rent", amount: 109500 }));
+// store.dispatch(addExpense({ description: "Water Bill", amount: 4500 }));
+// store.dispatch(addExpense({ description: "Gas Bill", amount: 1000 }));
+// store.dispatch(addExpense({ description: "Rent", amount: 109500 }));
 
 // store.dispatch(setTextFilter('water')); // bill (2), water (1)
 
@@ -23,10 +23,9 @@ store.dispatch(addExpense({ description: "Rent", amount: 109500 }));
 //   store.dispatch(setTextFilter('rent'));
 // }, 3000);
 
-const state = store.getState();
-const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
-// eslint-disable-next-line no-console
-console.log(visibleExpenses);
+// const state = store.getState();
+// const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
+// console.log(visibleExpenses);
 
 const jsx = (
   <Provider store={store}>
@@ -34,4 +33,4 @@ const jsx = (
   </Provider>
 );
 
-ReactDOM.render(jsx, document.getElementById("app"));
+ReactDOM.render(jsx, document.getElementById('app'));
