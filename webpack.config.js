@@ -9,7 +9,7 @@ module.exports = env => {
     mode: isProduction ? 'production' : 'development', // configuration needs to be explicitly state or a lot of performance warnings
     entry: './src/app.js', // entry -> output
     output: {
-      path: path.join(__dirname, 'public'),
+      path: path.join(__dirname, 'public', 'dist'),
       filename: 'bundle.js'
     },
     module: {
@@ -41,13 +41,12 @@ module.exports = env => {
         }
       ]
     },
-    plugins: [
-      CSSExtract
-    ],
+    plugins: [CSSExtract],
     devtool: isProduction ? 'source-map' : 'inline-source-map',
     devServer: {
       contentBase: path.join(__dirname, 'public'),
-      historyApiFallback: true
+      historyApiFallback: true,
+      publicPath: '/dist/'
     }
   };
 };
