@@ -1,5 +1,10 @@
 // const database = firebase.database();
 
+// database.ref('expenses').on('child_changed', snapshot => {
+//   // eslint-disable-next-line no-console
+//   console.log(snapshot.key, snapshot.val());
+// });
+
 // database.ref('expenses').on('child_removed', snapshot => {
 //   // eslint-disable-next-line no-console
 //   console.log(snapshot.key, snapshot.val());
