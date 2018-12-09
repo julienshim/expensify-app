@@ -1,5 +1,38 @@
 // const database = firebase.database();
 
+// database
+//   .ref('expenses')
+//   .once('value')
+//   .then(snapshot => {
+//     const expenses = [];
+//     snapshot.forEach(childSnapshot => {
+//       expenses.push({
+//         id: childSnapshot.key,
+//         ...childSnapshot.val()
+//       });
+//     });
+//     console.log(expenses);
+//   });
+
+// database.ref('expenses').on('value', snapshot => {
+//   const expenses = [];
+//   snapshot.forEach(childSnapshot => {
+//     expenses.push({
+//       id: childSnapshot.key,
+//       ...childSnapshot.val()
+//     });
+//   });
+//   // eslint-disable-next-line no-console
+//   console.log(expenses);
+// });
+
+// database.ref('expenses').push({
+//   description: 'Rent',
+//   note: 'December 2018',
+//   amount: 1000,
+//   createdAt: 0
+// });
+
 // database.ref('notes').remove();
 
 // database.ref('expenses').push({
