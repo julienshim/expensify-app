@@ -1,5 +1,28 @@
 // const database = firebase.database();
 
+// database.ref('notes').remove();
+
+// database.ref('expenses').push({
+//   description: 'Rent',
+//   note: 'December 2018',
+//   amount: 1000,
+//   createdAt: 0
+// });
+
+// database.ref('expenses').push({
+//   description: 'Leica',
+//   note: 'Leica M10 + 35mm Summicron',
+//   amount: 9000,
+//   createdAt: 1
+// });
+
+// database.ref('expenses').push({
+//   description: 'Wine',
+//   note: 'Christmas Present',
+//   amount: 51,
+//   createdAt: 2
+// });
+
 // const firebaseNotes = {
 //   notes: {
 //     asdfasdf: {
