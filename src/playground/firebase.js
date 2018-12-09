@@ -1,5 +1,33 @@
 // const database = firebase.database();
 
+// const firebaseNotes = {
+//   notes: {
+//     asdfasdf: {
+//       title: 'First note!',
+//       body: 'This is my note'
+//     },
+//     asdfasdff: {
+//       title: 'Another note',
+//       body: 'This is my note'
+//     }
+//   }
+// };
+
+// const notes = [
+//   {
+//     id: '12',
+//     title: 'First note!',
+//     body: 'This is my note'
+//   },
+//   {
+//     id: '761ase',
+//     title: 'Another note',
+//     body: 'This is my note'
+//   }
+// ];
+
+// database.ref('notes').set(notes);
+
 // database
 //   .ref()
 //   .set({
