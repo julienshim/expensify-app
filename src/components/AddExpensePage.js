@@ -2,13 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ExpenseForm from './ExpenseForm';
-import { addExpense } from '../actions/expenses';
+import { startAddExpense } from '../actions/expenses';
 
 export class AddExpensePage extends React.Component {
   onSubmit = expense => {
     // eslint-disable-next-line no-shadow
-    const { addExpense, history } = this.props;
-    addExpense(expense);
+    const { startAddExpense, history } = this.props;
+    startAddExpense(expense);
     history.push('/');
   };
 
@@ -23,14 +23,14 @@ export class AddExpensePage extends React.Component {
 }
 
 AddExpensePage.propTypes = {
-  addExpense: PropTypes.func,
+  startAddExpense: PropTypes.func,
   history: PropTypes.shape({
     push: PropTypes.func
   })
 };
 
 const mapDispatchToProps = dispatch => ({
-  addExpense: expense => dispatch(addExpense(expense)) // same name as action generator in upper which is confusing
+  startAddExpense: expense => dispatch(startAddExpense(expense)) // same name as action generator in upper which is confusing
 });
 
 export default connect(
