@@ -24,4 +24,8 @@ const config = {
 };
 
 firebase.initializeApp(config);
+
+const database = firebase.database();
+
+expoert { firebase, database as default };
 ```
