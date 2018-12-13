@@ -29,3 +29,14 @@ const database = firebase.database();
 
 expoert { firebase, database as default };
 ```
+
+``` .env.development / .env.test
+
+FIREBASE_API_KEY=<apiKey>
+FIREBASE_AUTH_DOMAIN=<authDomain>
+FIREBASE_DATABASE_URL=<databaseURL>
+FIREBASE_PROJECT_ID=<projectId>
+FIREBASE_STORAGE_BUCKET=<storageBucket>
+FIREBASE_MESSAGING_SENDER_ID=<messagingSenderId>
+
+```
