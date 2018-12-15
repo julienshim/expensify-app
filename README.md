@@ -25,7 +25,7 @@ const config = {
 
 firebase.initializeApp(config);
 
-const database = firebase.database();
+const database = firebase.database();hero
 
 expoert { firebase, database as default };
 ```
