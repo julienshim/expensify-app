@@ -19,7 +19,7 @@ const config = {
   authDomain: '<authDomain>',
   databaseURL: '<databaseURL>',
   projectId: '<projectId>',
-  storageBucket: '<storageBucket>,
+  storageBucket: '<storageBucket>',
   messagingSenderId: '<messagingSenderId>'
 };
 
@@ -27,7 +27,7 @@ firebase.initializeApp(config);
 
 const database = firebase.database();hero
 
-expoert { firebase, database as default };
+export { firebase, database as default };
 ```
 
 ``` .env.development / .env.test
