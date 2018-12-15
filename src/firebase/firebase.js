@@ -12,6 +12,8 @@ const config = {
 };
 
 firebase.initializeApp(config);
+// eslint-disable-next-line no-console
+console.log(config);
 
 const database = firebase.database();
 
