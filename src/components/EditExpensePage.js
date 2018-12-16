@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ExpenseForm from './ExpenseForm';
-import { editExpense, removeExpense } from '../actions/expenses';
+import { editExpense, startRemoveExpense } from '../actions/expenses';
 
 export class EditExpensePage extends React.Component {
   onSubmit = expense => {
@@ -14,8 +14,8 @@ export class EditExpensePage extends React.Component {
 
   onRemove = () => {
     // eslint-disable-next-line no-shadow
-    const { removeExpense, expense, history } = this.props;
-    removeExpense({ id: expense.id });
+    const { startRemoveExpense, expense, history } = this.props;
+    startRemoveExpense({ id: expense.id });
     history.push('/');
   };
 
@@ -33,7 +33,7 @@ export class EditExpensePage extends React.Component {
 }
 
 EditExpensePage.propTypes = {
-  removeExpense: PropTypes.func,
+  startRemoveExpense: PropTypes.func,
   editExpense: PropTypes.func,
   history: PropTypes.shape({
     push: PropTypes.func
@@ -49,7 +49,7 @@ const mapStateToProps = (state, props) => ({
 
 const mapDispatchToProps = (dispatch, props) => ({
   editExpense: (id, expense) => dispatch(editExpense(id, expense)),
-  removeExpense: data => dispatch(removeExpense(data))
+  startRemoveExpense: data => dispatch(startRemoveExpense(data))
 });
 
 export default connect(
