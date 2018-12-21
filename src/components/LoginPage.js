@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import startLogin from '../actions/auth';
+import { startLogin } from '../actions/auth';
 
 // eslint-disable-next-line no-shadow
 export const LoginPage = ({ startLogin }) => (
