@@ -14,3 +14,11 @@ test('should render Header correctly', () => {
   // renderer.render(<Header />);
   // expect(renderer.getRenderOutput()).toMatchSnapshot();
 });
+
+// should call startLogout on button click
+test('should call startLogout on button click', () => {
+  const startLogout = jest.fn();
+  const wrapper = shallow(<Header startLogout={startLogout} />);
+  wrapper.find('button').simulate('click');
+  expect(startLogout).toHaveBeenCalled();
+});
