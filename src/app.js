@@ -8,7 +8,6 @@ import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
 import 'react-dates/initialize';
-import './firebase/firebase';
 import { firebase } from './firebase/firebase';
 
 const store = configureStore();
@@ -25,10 +24,12 @@ store.dispatch(startSetExpenses()).then(() => {
   ReactDOM.render(jsx, document.getElementById('app'));
 });
 
-firebase.auth().onAuthStateChanged((user) => {
+firebase.auth().onAuthStateChanged(user => {
   if (user) {
+    // eslint-disable-next-line no-console
     console.log('log in');
   } else {
+    // eslint-disable-next-line no-console
     console.log('log out');
   }
 });
