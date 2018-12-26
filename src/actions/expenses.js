@@ -75,9 +75,10 @@ export const setExpenses = expenses => ({
   expenses
 });
 
-export const startSetExpenses = () => dispatch =>
-  database
-    .ref('expenses')
+export const startSetExpenses = () => (dispatch, getState) => {
+  const { uid } = getState().auth;
+  return database
+    .ref(`users/${uid}/expense`)
     .once('value')
     .then(snapshot => {
       const expenses = [];
@@ -90,3 +91,4 @@ export const startSetExpenses = () => dispatch =>
 
       dispatch(setExpenses(expenses));
     });
+};
