@@ -35,7 +35,7 @@ export class EditExpensePage extends React.Component {
             type="button"
             onClick={this.onRemove}
           >
-            Remove
+            Remove Expense
           </button>
         </div>
       </div>
