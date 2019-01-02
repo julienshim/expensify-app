@@ -17,7 +17,7 @@ module.exports = env => {
 
   return {
     mode: isProduction ? 'production' : 'development', // configuration needs to be explicitly state or a lot of performance warnings
-    entry: './src/app.js', // entry -> output
+    entry: ['babel-polyfill', './src/app.js'], // entry -> output
     output: {
       path: path.join(__dirname, 'public', 'dist'),
       filename: 'bundle.js'
